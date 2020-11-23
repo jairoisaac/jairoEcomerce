@@ -32,6 +32,7 @@ namespace jairoEcomerce
             services.AddDbContext<MyEcomerceContext>( cfg => 
                 cfg.UseSqlServer(Configuration.GetConnectionString("MyConnectionEcommerce")));
             services.AddTransient<MySeeder>();
+            services.AddScoped<IEcommerceRepository, EcommerceRepository>();
 
         }
 
