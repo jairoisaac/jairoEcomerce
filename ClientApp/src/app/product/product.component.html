@@ -1,0 +1,14 @@
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-4 card card-body bg-light" *ngFor='let prod of Product'>
+        <!--<img src={{prod.imageUrl}} alt="Product image" class="img-fluid" />-->
+        <img [src]='prod.imageUrl' alt="Product image" class="img-fluid" />
+        <p>{{prod.category}}</p>
+        <p>{{prod.name}}</p>
+        <p>{{prod.price | currency}}</p>
+      </div>
+    </div>
+  </div>
+</div>
