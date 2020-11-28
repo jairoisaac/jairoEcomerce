@@ -33,7 +33,6 @@ namespace jairoEcomerce
                 cfg.UseSqlServer(Configuration.GetConnectionString("MyConnectionEcommerce")));
             services.AddTransient<MySeeder>();
             services.AddScoped<IEcommerceRepository, EcommerceRepository>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

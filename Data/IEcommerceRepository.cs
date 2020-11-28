@@ -7,6 +7,9 @@ namespace jairoEcomerce.Data
     {
         IEnumerable<Product> GetProducts();
         IEnumerable<Product> GetProductsByCategory(string category);
+        IEnumerable<Order> GetOrders();
+        Order GetOrderById(int id);
         public bool SaveAll();
+        void AddEntity(object model);
     }
 }

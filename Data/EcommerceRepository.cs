@@ -13,6 +13,8 @@ namespace jairoEcomerce.Data
         {
             this.ctx = ctx;
         }
+
+
         public IEnumerable<Product> GetProducts()
         {
             return ctx.Products
@@ -25,10 +27,45 @@ namespace jairoEcomerce.Data
                 .Where(p => p.Category == category)
                 .ToList();
         }
+       public IEnumerable<Order> GetOrders()
+        {
+            return ctx.Orders.Select(o => new Order
+            {
+                OrderDate = o.OrderDate,
+                OrderNumber = o.OrderNumber,
+                Items = o.Items.Select(i => new OrderItem
+                {
+                    Product   = i.Product,
+                    Quantity  = i.Quantity,
+                    UnitPrice = i.UnitPrice
+                }).ToList()
+            }).ToList();
+        }
 
         public bool SaveAll()
         {
             return ctx.SaveChanges() > 0;
+        }
+
+        public Order GetOrderById(int id)
+        {
+            return ctx.Orders.Where(or => or.Id == id)
+                .Select(o => new Order
+            {
+                OrderDate = o.OrderDate,
+                OrderNumber = o.OrderNumber,
+                Items = o.Items.Select(i => new OrderItem
+                {
+                    Product = i.Product,
+                    Quantity = i.Quantity,
+                    UnitPrice = i.UnitPrice
+                }).ToList()
+            }).FirstOrDefault();
+        }
+
+        public void AddEntity(object model)
+        {
+            ctx.Add(model);
         }
     }
 }
