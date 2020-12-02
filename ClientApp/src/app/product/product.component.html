@@ -2,13 +2,20 @@
 <div class="row">
   <div class="col-md-8">
     <div class="row">
-      <div class="col-md-4 card card-body bg-light" *ngFor='let prod of Product'>
-        <!--<img src={{prod.imageUrl}} alt="Product image" class="img-fluid" />-->
-        <img [src]='prod.imageUrl' alt="Product image" class="img-fluid" />
-        <p>{{prod.category}}</p>
-        <p>{{prod.name}}</p>
-        <p>{{prod.price | currency}}</p>
-      </div>
+      <div class="product-info col-md-4" *ngFor='let prod of Product'>
+        <div class="card card-body bg-light p-1 m-1">
+          <img [src]='prod.imageUrl' alt="Product image" class="img-fluid" />
+          <h3>{{prod.category}}</h3>
+          <ul class="product-props list-unstyled">
+            <li><strong>Price</strong>: {{ prod.price | currency:"USD":true }}</li>
+            <li><strong>Name</strong>: {{ prod.name }}</li>
+          </ul>
+          <button id="buyButton" class="btn btn-success" (click)="AddToProduct(prod)">Buy</button>
+        </div>
+     </div>
     </div>
+  </div>
+  <div class="col-md-4">
+    <app-cart></app-cart>
   </div>
 </div>

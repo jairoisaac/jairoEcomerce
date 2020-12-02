@@ -31,10 +31,12 @@ namespace jairoEcomerce.Data
         {
             return ctx.Orders.Select(o => new Order
             {
+                Id        = o.Id,
                 OrderDate = o.OrderDate,
                 OrderNumber = o.OrderNumber,
                 Items = o.Items.Select(i => new OrderItem
                 {
+                    Id        = i.Id,
                     Product   = i.Product,
                     Quantity  = i.Quantity,
                     UnitPrice = i.UnitPrice
@@ -52,10 +54,12 @@ namespace jairoEcomerce.Data
             return ctx.Orders.Where(or => or.Id == id)
                 .Select(o => new Order
             {
+                Id        = o.Id,
                 OrderDate = o.OrderDate,
                 OrderNumber = o.OrderNumber,
                 Items = o.Items.Select(i => new OrderItem
                 {
+                    Id = i.Id,
                     Product = i.Product,
                     Quantity = i.Quantity,
                     UnitPrice = i.UnitPrice

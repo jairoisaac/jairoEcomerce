@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using System.Reflection;
 
 namespace jairoEcomerce
 {
@@ -33,6 +35,7 @@ namespace jairoEcomerce
                 cfg.UseSqlServer(Configuration.GetConnectionString("MyConnectionEcommerce")));
             services.AddTransient<MySeeder>();
             services.AddScoped<IEcommerceRepository, EcommerceRepository>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
