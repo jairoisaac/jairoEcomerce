@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+import { ShopComponent } from './shop/shop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { CartComponent } from './cart/cart.component';
     FetchDataComponent,
     ProductComponent,
     CartComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,6 +32,7 @@ import { CartComponent } from './cart/cart.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'product', component: ProductComponent },
+      //{ path: 'shop', component: ShopComponent },
     ])
   ],
   providers: [],
