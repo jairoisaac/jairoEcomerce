@@ -12,6 +12,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
   public order: Order = new Order();
+  
 
   private productUrl = 'https://localhost:44367/api/Product';
 
@@ -24,6 +25,9 @@ export class DataService {
   public AddToOrder(product: IProduct) {
 
     let item: OrderItem = this.order.items.find(i => i.productId == product.id);
+    //let item: OrderItem = new OrderItem;
+    //item = this.order.items.find(i => i.productId == product.id);
+
 
     if (item) {
 
@@ -33,9 +37,9 @@ export class DataService {
       item = new OrderItem();
       item.productId = product.id;
       item.quantity = 1;
-      item.unitPrice = product.Price;
-      item.productCategory = product.Category;
-      item.productName = product.Name;
+      item.unitPrice = product.price;
+      item.productCategory = product.category;
+      item.productName = product.name;
       this.order.items.push(item);
     }
   }
