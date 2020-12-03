@@ -31,8 +31,8 @@ import { ShopComponent } from './shop/shop.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'product', component: ProductComponent },
-      //{ path: 'shop', component: ShopComponent },
+      //{ path: 'product', component: ProductComponent },
+      { path: 'shop', component: ShopComponent },
     ])
   ],
   providers: [],
