@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { ShopComponent } from './shop/shop.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { ShopComponent } from './shop/shop.component';
     ProductComponent,
     CartComponent,
     ShopComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +35,7 @@ import { ShopComponent } from './shop/shop.component';
       { path: 'fetch-data', component: FetchDataComponent },
       //{ path: 'product', component: ProductComponent },
       { path: 'shop', component: ShopComponent },
+      { path: 'checkout', component: CheckoutComponent }
     ])
   ],
   providers: [],
