@@ -58,19 +58,9 @@ export class DataService {
   }
 
   public checkout(): Observable<Order> {
-    //return this.http.post<Order>("/api/orders", order, {}).pipe(map(response => {
-    //  this.order = new Order();
-    //  return true;
-    //}));
-
-    //return this.http.post<Order>("/api/orders", this.order, {}).pipe(map(response => {
-    //  this.order = new Order();
-    //  return true;
-
     return this.http.post<Order>("/api/orders", this.order, {}).pipe(
       tap(data => console.log('ALL: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
-          
-        }
+  }
 }

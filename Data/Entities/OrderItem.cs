@@ -1,6 +1,9 @@
-﻿namespace jairoEcomerce.Data.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace jairoEcomerce.Data.Entities
 {
-    public class OrderItem : IOrderItem
+    //[Table("OrderItem")]
+    public class OrderItem // : IOrderItem
     {
         public int Id { get; set; }
         public Product Product { get; set; }

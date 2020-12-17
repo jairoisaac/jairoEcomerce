@@ -67,9 +67,21 @@ namespace jairoEcomerce.Data
             }).FirstOrDefault();
         }
 
-        public void AddEntity(object model)
+        public void AddOrder(Order model)
         {
+            foreach (var item in model.Items)
+            {
+                item.Product = ctx.Products.Find(item.Product.Id);
+            }
+
             ctx.Add(model);
+            //foreach (var item in model.Items)
+            //{
+            //    ctx.OrderItems.Add(item);
+            //}
+            //if model is an order => add orderItems.
+
         }
+
     }
 }

@@ -10,6 +10,6 @@ namespace jairoEcomerce.Data
         IEnumerable<Order> GetOrders();
         Order GetOrderById(int id);
         public bool SaveAll();
-        void AddEntity(object model);
+        void AddOrder(Order model);
     }
 }

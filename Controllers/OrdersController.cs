@@ -76,9 +76,11 @@ namespace jairoEcomerce.Controllers
                         newOrder.OrderDate = DateTime.Now;
                     }
 
-                    repository.AddEntity(newOrder);
+                    repository.AddOrder(newOrder);
                     if (repository.SaveAll())
                     {
+
+
                         return Created($"/api/orders/{newOrder.Id}",
                             mapper.Map<Order, OrderViewModel>(newOrder));
                     }

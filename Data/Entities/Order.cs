@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace jairoEcomerce.Data.Entities
 {
-    public class Order : IOrder
+    //[Table("Order")]
+    public class Order //: IOrder
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
