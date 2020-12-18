@@ -13,5 +13,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public itemToDelete(event,o) {
+  
+    alert("This is the number " + o.productId);
+  }
 }

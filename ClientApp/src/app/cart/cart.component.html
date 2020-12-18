@@ -8,16 +8,21 @@
       <td>#</td>
       <td>$</td>
       <td>Total</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let o of data.order.items">
+    <tr *ngFor="let o of data.order.items" (click)="itemToDelete($event,o)">
       <td>{{ o.productCategory}} - {{o.productName}}</td>
       <td>{{ o.quantity }}</td>
       <td>{{ o.unitPrice | currency:"USD":true }}</td>
       <td>{{ (o.unitPrice * o.quantity) | currency:"USD":true }}</td>
+      <td>
+      <!--<input type="button" (click)='ItemToDelete(5)'  title="{{o.productId}}"/>-->
+      </td>
     </tr>
   </tbody>
 </table>
 <!--<a routerLink ="/checkout" class="btn btn-success" *ngIf="data.order.items.length > 0">Checkout</a>-->
 <a routerLink ="/checkout" class="btn btn-success" >Checkout</a>
+<!--add a botom on each row -->
