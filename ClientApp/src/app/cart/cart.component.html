@@ -12,13 +12,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let o of data.order.items" (click)="itemToDelete($event,o)">
+    <tr *ngFor="let o of data.order.items">
       <td>{{ o.productCategory}} - {{o.productName}}</td>
       <td>{{ o.quantity }}</td>
       <td>{{ o.unitPrice | currency:"USD":true }}</td>
       <td>{{ (o.unitPrice * o.quantity) | currency:"USD":true }}</td>
       <td>
-      <!--<input type="button" (click)='ItemToDelete(5)'  title="{{o.productId}}"/>-->
+        <!--<input type="button" (click)="itemToDelete($event,o)"  title="{{o.productId}}"/>-->
+        <input type="button" (click)="itemToDelete(o)" title="{{o.productId}}" />
       </td>
     </tr>
   </tbody>
