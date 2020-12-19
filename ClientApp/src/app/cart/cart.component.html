@@ -9,6 +9,8 @@
       <td>$</td>
       <td>Total</td>
       <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +20,15 @@
       <td>{{ o.unitPrice | currency:"USD":true }}</td>
       <td>{{ (o.unitPrice * o.quantity) | currency:"USD":true }}</td>
       <td>
-        <!--<input type="button" (click)="itemToDelete($event,o)"  title="{{o.productId}}"/>-->
-        <input type="button" (click)="itemToDelete(o)" title="{{o.productId}}" />
+        <input type="button" (click)="itemToDecrese(o)" value="-" />
       </td>
+      <td>
+        <input type="button" (click)="itemToIncrease(o)" value="+" />
+      </td>
+      <td>
+        <input type="button" (click)="ItemToDelete(o)" value="X" />
+      </td>
+
     </tr>
   </tbody>
 </table>
