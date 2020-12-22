@@ -1,5 +1,6 @@
 <h3>Shooping Cart</h3>
 <div>#/Items: {{data.order.items.length}}</div>
+<!--<div>#/Items: {{data.order.totalItems}}</div>-->
 <div>Subtotal: {{data.order.subtotal}}</div>
 <table class="table table-condensed table-hover">
   <thead>
@@ -33,5 +34,5 @@
   </tbody>
 </table>
 <!--<a routerLink ="/checkout" class="btn btn-success" *ngIf="data.order.items.length > 0">Checkout</a>-->
-<a routerLink ="/checkout" class="btn btn-success" >Checkout</a>
+<a routerLink="/checkout" class="btn btn-success">Checkout</a>
 <!--add a botom on each row -->
