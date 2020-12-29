@@ -3,6 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatButtonModule,
+  MatProgressBarModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -13,7 +20,9 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { ShopComponent } from './shop/shop.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-@NgModule({
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { from } from 'rxjs';
+ @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
@@ -29,6 +38,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatProgressBarModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -36,7 +50,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
       //{ path: 'product', component: ProductComponent },
       { path: 'shop', component: ShopComponent },
       { path: 'checkout', component: CheckoutComponent }
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
