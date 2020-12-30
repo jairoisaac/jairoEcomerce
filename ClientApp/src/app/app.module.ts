@@ -13,6 +13,7 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { ShopComponent } from './shop/shop.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { UploadComponent } from './upload/upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ProductComponent,
     CartComponent,
     ShopComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
