@@ -14,6 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { ShopComponent } from './shop/shop.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UploadComponent } from './upload/upload.component';
+import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { UploadComponent } from './upload/upload.component';
     CartComponent,
     ShopComponent,
     CheckoutComponent,
-    UploadComponent
+    UploadComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,6 +39,7 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'fetch-data', component: FetchDataComponent },
       //{ path: 'product', component: ProductComponent },
       { path: 'shop', component: ShopComponent },
+      { path: 'products', component: ProductsComponent },
       { path: 'checkout', component: CheckoutComponent }
     ])
   ],
