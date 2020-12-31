@@ -5,14 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public response: { dbPath: '' };
-
-  public uploadFinished = (event) => {
-    this.response = event;
-  }
-
-  public createImgPath = () => {
-    return 'https://localhost:44367/'+this.response.dbPath;
-  }
 }
 

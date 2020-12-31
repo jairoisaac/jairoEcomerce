@@ -21,6 +21,8 @@
       <label for="name">Price</label>
       <input id="price" name="price" class="form-control" type="text" />
     </div>
+    <img [src]="createImgPath()" alt="profile picture" style="width:60px; height:60px;">
+    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
     <button class="btn btn-primary">Ok</button>
   </form>
 </div>

@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  public response: { dbPath: '' };
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public uploadFinished = (event) => {
+    this.response = event;
+  }
+
+  public createImgPath = () => {
+    return 'https://localhost:44367/' + this.response.dbPath;
   }
 
 }
