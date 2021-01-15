@@ -18,6 +18,8 @@ namespace jairoEcomerce.Data
           .ReverseMap();
           CreateMap<OrderItem, OrderItemViewModel>()
           .ReverseMap();
+            CreateMap<Product, ProductViewModel>()
+            .ReverseMap();
         }
     }
 }

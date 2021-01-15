@@ -11,21 +11,16 @@ export class UploadComponent implements OnInit {
   public progress: number;
   @Output() public onUploadFinished = new EventEmitter();
 
-
-
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
-  
   public uploadFile = (files) => {
     if (files.lengh === 0)
       return;
-
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-
     this.http.post('https://localhost:44367/api/uload', formData, { reportProgress: true, observe: 'events' })
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
@@ -37,5 +32,4 @@ export class UploadComponent implements OnInit {
         }
       })
   }
-
 }

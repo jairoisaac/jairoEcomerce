@@ -1,4 +1,5 @@
 ﻿using jairoEcomerce.Data.Entities;
+using jairoEcomerce.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +83,16 @@ namespace jairoEcomerce.Data
             //if model is an order => add orderItems.
 
         }
+       
+        public void AddProduct(Product model)
+        {
+            ctx.Add(model);
+            //throw new NotImplementedException();
+        }
 
+        public Product GetProduct(int id)
+        {
+            return ctx.Products.Where(p => p.Id == id).FirstOrDefault();
+        }
     }
 }

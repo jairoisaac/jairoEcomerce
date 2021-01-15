@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { IProduct } from '../product/product';
 import { catchError, tap } from 'rxjs/operators';
 import { Order, OrderItem } from "./order";
@@ -63,4 +63,26 @@ export class DataService {
       catchError(this.handleError)
     );
   }
+
+  //postProductsForm(products: IProduct): Observable<IProduct> {
+  //  return of(products);
+  //}
+
+  //postProductsForm(products: IProduct): Observable<IProduct> {
+  //  return this.http.post<IProduct>("/api/product", products, {}).pipe(
+  //    tap(data => console.log('all: ' + JSON.stringify(data))),
+  //    catchError(this.handleError)
+  //  );
+  //}
+
+  // Initial version of the observable
+  postProductsForm(product: IProduct): Observable<any> {
+    //return this.http.post("https://putsreq.com/Tacm5LoAYQgJJILEZ6Wj", products, {});
+    //const productJSON = JSON.stringify(product);
+    //return this.http.post("/api/Product", productJSON, { 'headers': headers });
+    //const headers = { 'content-type': 'application/json' };
+    //product.id = 4;
+    return this.http.post("/api/Product", product, {});
+  }
+  
 }

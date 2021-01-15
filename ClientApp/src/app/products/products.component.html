@@ -1,28 +1,46 @@
 <div class="container">
   <h2>Product Data</h2>
-  <form>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
       <label for="categories">Categories</label>
-      <select class="form-control" aria-label="Default select example" id="categories">
+      <select class="form-control" aria-label="Default select example" id="categories" [(ngModel)]="product.category" name="categories">
         <!--<option selected>Open this select menu</option>-->
-        <option value="1">Pitos</option>
-        <option value="2">Mildred</option>
-        <option value="3">Serah</option>
-        <option value="4">RoseMaries</option>
-        <option value="5">Caballos</option>
+        <!--<option value="1">Pitos</option>
+      <option value="2">Mildred</option>
+      <option value="3">Serah</option>
+      <option value="4">RoseMaries</option>
+      <option value="5">Caballos</option>-->
+        <option>Pitos</option>
+        <option>Mildred</option>
+        <option>Serah</option>
+        <option>RoseMaries</option>
+        <option>Caballos</option>
       </select>
 
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input id="name" name="name" class="form-control" type="text" />
+      <input id="name" name="name" class="form-control" type="text" [(ngModel)]="product.name"
+             required #nameField="ngModel" (blur)="onBlur(nameField)"
+             [class.field-error]="form.submitted && nameField.invalid"/>
+      <div [hidden]="nameField.valid || !form.submitted" class="alert alert-danger">
+            Enter a name
+      </div>
     </div>
     <div class="form-group">
       <label for="name">Price</label>
-      <input id="price" name="price" class="form-control" type="text" />
+      <input id="price" name="price" class="form-control" type="number" [(ngModel)]="product.price"/>
     </div>
-    <img [src]="createImgPath()" alt="profile picture" style="width:60px; height:60px;">
-    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
-    <button class="btn btn-primary">Ok</button>
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input id="imageUrl" name="imageUrl" class="form-control" type="text" [(ngModel)]="product.imageUrl" />
+    </div>
+    <button class="btn btn-primary">Send</button>
   </form>
 </div>
+<div class="container">
+  <img [src]="createImgPath()" alt="profile picture" style="width:60px; height:60px;">
+  <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+</div>
+
+
