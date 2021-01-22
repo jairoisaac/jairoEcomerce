@@ -2,14 +2,9 @@
   <h2>Product Data</h2>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
+      <div *ngIf="noPicture" class="alert alert-warning">{{ errorMessage }}</div>
       <label for="categories">Categories</label>
       <select class="form-control" aria-label="Default select example" id="categories" [(ngModel)]="product.category" name="categories">
-        <!--<option selected>Open this select menu</option>-->
-        <!--<option value="1">Pitos</option>
-      <option value="2">Mildred</option>
-      <option value="3">Serah</option>
-      <option value="4">RoseMaries</option>
-      <option value="5">Caballos</option>-->
         <option>Pitos</option>
         <option>Mildred</option>
         <option>Serah</option>
@@ -25,7 +20,7 @@
              [class.field-error]="form.submitted && nameField.invalid"/>
       <div [hidden]="nameField.valid || !form.submitted" class="alert alert-danger">
             Enter a name
-      </div>
+      </div> 
     </div>
     <div class="form-group">
       <label for="name">Price</label>
@@ -33,7 +28,8 @@
     </div>
     <div class="form-group">
       <label for="imageUrl">Image URL</label>
-      <input id="imageUrl" name="imageUrl" class="form-control" type="text" [(ngModel)]="product.imageUrl" />
+      {{product.imageUrl}}
+      <!--<input id="imageUrl" name="imageUrl" class="form-control" type="text" [(ngModel)]="product.imageUrl" />-->
     </div>
     <button class="btn btn-primary">Send</button>
   </form>

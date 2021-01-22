@@ -46,6 +46,7 @@ namespace jairoEcomerce.Controllers
             // USING PRODUCT ID = 28 TO TEST
              try
             {
+                // Here is were you need the awit.
                 Product myProduct = repository.GetProduct(id);
                 string Name = myProduct.ImageUrl;
                 char[] charsToTrim = { '*', ' ', '\'' };
@@ -56,10 +57,9 @@ namespace jairoEcomerce.Controllers
                 using MemoryStream memoryStream = new MemoryStream();
                 image.Save(memoryStream, image.RawFormat);
                 byte[] imageBytes = memoryStream.ToArray();
-                String base64String = Convert.ToBase64String(imageBytes);
-                myProduct.ImageUrl = base64String;
-                //var image = System.IO.File.OpenRead("C:\\Papi\\AngularNET\\JairoEComerce\\jairoEcomerce\\Resources\\Images\\"+Name+".JPG");
                 // Turn that image into a strding.
+                string base64String = Convert.ToBase64String(imageBytes);
+                myProduct.ImageUrl = base64String;
                 // save the string into the appropriate object variable
                 //return await Task.Run(() => File(image, "image/jpeg"));
                 return Ok(myProduct);
@@ -75,7 +75,6 @@ namespace jairoEcomerce.Controllers
         //public IActionResult Post([FromBody] Product model)
         [HttpPost]
         public ActionResult<ProductViewModel> Post([FromBody]ProductViewModel model)
-        //public ActionResult<Product> Post(Product model)
         {
             try 
             {

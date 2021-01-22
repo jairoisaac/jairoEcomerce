@@ -11,6 +11,8 @@ import { DataService } from '../shared/data.service';
 export class ProductsComponent implements OnInit {
   // To get the path of the picture
   public response: { dbPath: '' };
+  public noPicture = true;
+  errorMessage = "No Picture";
 
   originalproduct: IProduct = {
     category: null,
@@ -28,17 +30,26 @@ export class ProductsComponent implements OnInit {
   }
 
   public uploadFinished = (event) => {
+    //This one is the one who links upload and products
     this.response = event;
+    if (this.response.dbPath.length > 0)
+      this.noPicture = false;
   }
 
   // to upload the picture of the product
   public createImgPath = () => {
-    //console.log(this.response.dbPath);
+    let imageString = this.response.dbPath;
+    if (imageString.length <= 0)
+      this.noPicture = true;
+    this.product.imageUrl = imageString.replace("img\\", "");
+    console.log("HTML img src=createImgPath: this.response.dbPath " + this.response.dbPath);
     return 'https://localhost:44367/' + this.response.dbPath;
   }
 
  onSubmit(form: NgForm) {
    console.log('in onSubmit: ', form.valid);
+   //this.data.postProductsForm(this.product).subscribe(result => console.log('success', result),
+   //  error => console.log('error ', error));
    this.data.postProductsForm(this.product).subscribe(result => console.log('success', result),
      error => console.log('error ', error));
  }

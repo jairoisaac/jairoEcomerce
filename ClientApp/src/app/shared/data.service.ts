@@ -26,14 +26,9 @@ export class DataService {
   public AddToOrder(product: IProduct) {
 
     let item: OrderItem = this.order.items.find(i => i.productId == product.id);
-    //let item: OrderItem = new OrderItem;
-    //item = this.order.items.find(i => i.productId == product.id);
-
 
     if (item) {
-
       item.quantity++;
-
     } else {
       item = new OrderItem();
       item.productId = product.id;
@@ -62,27 +57,15 @@ export class DataService {
       tap(data => console.log('ALL: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
+
   }
 
-  //postProductsForm(products: IProduct): Observable<IProduct> {
-  //  return of(products);
-  //}
-
-  //postProductsForm(products: IProduct): Observable<IProduct> {
-  //  return this.http.post<IProduct>("/api/product", products, {}).pipe(
-  //    tap(data => console.log('all: ' + JSON.stringify(data))),
-  //    catchError(this.handleError)
-  //  );
-  //}
 
   // Initial version of the observable
   postProductsForm(product: IProduct): Observable<any> {
-    //return this.http.post("https://putsreq.com/Tacm5LoAYQgJJILEZ6Wj", products, {});
-    //const productJSON = JSON.stringify(product);
-    //return this.http.post("/api/Product", productJSON, { 'headers': headers });
-    //const headers = { 'content-type': 'application/json' };
-    //product.id = 4;
+    //Saving the product to the datavbase.
     return this.http.post("/api/Product", product, {});
   }
-  
+
+
 }

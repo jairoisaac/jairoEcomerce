@@ -19,15 +19,15 @@ namespace jairoEcomerce.Controllers
             try
             {
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Resources", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-                if(file.Length > 0)
+                if (file.Length > 0)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var fullPath = Path.Combine(pathToSave, fileName);
-                    var dbPath = Path.Combine(folderName, fileName);
+                    var fileName = ContentDispositionHeaderValue
+                        .Parse(file.ContentDisposition).FileName.Trim('"');
+                    var pathToSave = Path.Combine(Directory.GetCurrentDirectory(),
+                        @"wwwroot\img",fileName);
+                    var dbPath = Path.Combine("img", fileName);
 
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    using (var stream = new FileStream(pathToSave, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }

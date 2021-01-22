@@ -40,6 +40,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\img\image00.jpg" />
+    <Content Remove="wwwroot\img\image11.jpg" />
+    <Content Remove="wwwroot\img\image22.jpg" />
+    <Content Remove="wwwroot\img\image44.jpg" />
+    <Content Remove="wwwroot\img\image55.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\product\product.ts" />
     <None Remove="ClientApp\src\app\shared\order.ts" />
   </ItemGroup>
@@ -47,6 +55,15 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resources\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\image00.jpg" />
+    <None Include="wwwroot\img\image11.jpg" />
+    <None Include="wwwroot\img\image22.jpg" />
+    <None Include="wwwroot\img\image44.jpg" />
+    <None Include="wwwroot\img\image55.jpg" />
+    <None Include="wwwroot\img\IMG_3306.JPG" />
   </ItemGroup>
 
   <ItemGroup>
