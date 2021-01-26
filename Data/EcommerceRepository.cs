@@ -1,5 +1,6 @@
 ﻿using jairoEcomerce.Data.Entities;
 using jairoEcomerce.ViewModels;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,26 @@ namespace jairoEcomerce.Data
     public class EcommerceRepository : IEcommerceRepository
     {
         private readonly MyEcomerceContext ctx;
-        public EcommerceRepository(MyEcomerceContext ctx)
+        private readonly ILogger<EcommerceRepository> logger;
+        public EcommerceRepository(MyEcomerceContext ctx, ILogger<EcommerceRepository> logger)
         {
+            this.logger = logger;
             this.ctx = ctx;
         }
 
 
-        public IEnumerable<Product> GetProducts()
+        public  async Task<IEnumerable<Product>> GetProductsAsync()
         {
-            return ctx.Products
-                .OrderBy(p => p.Name)
-                .ToList();
+            try
+            {
+                var result = ctx.Products.OrderBy(p => p.Name).ToList();
+                return await Task.FromResult(result);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"Failed to get all products: {ex}"); 
+                return null;
+            }
         }
         public IEnumerable<Product> GetProductsByCategory(string category)
         {
@@ -76,12 +86,6 @@ namespace jairoEcomerce.Data
             }
 
             ctx.Add(model);
-            //foreach (var item in model.Items)
-            //{
-            //    ctx.OrderItems.Add(item);
-            //}
-            //if model is an order => add orderItems.
-
         }
        
         public void AddProduct(Product model)

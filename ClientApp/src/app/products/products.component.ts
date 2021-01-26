@@ -1,3 +1,4 @@
+import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { IProduct } from '../product/product';
@@ -11,7 +12,7 @@ import { DataService } from '../shared/data.service';
 export class ProductsComponent implements OnInit {
   // To get the path of the picture
   public response: { dbPath: '' };
-  public noPicture = true;
+  public noPicture = false;
   errorMessage = "No Picture";
 
   originalproduct: IProduct = {
@@ -46,7 +47,10 @@ export class ProductsComponent implements OnInit {
     return 'https://localhost:44367/' + this.response.dbPath;
   }
 
- onSubmit(form: NgForm) {
+  onSubmit(form: NgForm) {
+    if (this.product.imageUrl == null)
+      this.noPicture = true;
+      
    console.log('in onSubmit: ', form.valid);
    //this.data.postProductsForm(this.product).subscribe(result => console.log('success', result),
    //  error => console.log('error ', error));

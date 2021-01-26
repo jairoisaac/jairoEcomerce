@@ -28,11 +28,11 @@ namespace jairoEcomerce.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> Get()
+        public async Task<ActionResult<IEnumerable<Product>>> Get()
         {
             try
             {
-                return Ok(repository.GetProducts());
+                return Ok(await repository.GetProductsAsync());
             }
             catch (Exception ex)
             {
@@ -40,36 +40,7 @@ namespace jairoEcomerce.Controllers
                 return BadRequest("Failed to get products");
             }
         }
-        [HttpGet("{id}")]
-        public ActionResult Get(int id)
-        {
-            // USING PRODUCT ID = 28 TO TEST
-             try
-            {
-                // Here is were you need the awit.
-                Product myProduct = repository.GetProduct(id);
-                string Name = myProduct.ImageUrl;
-                char[] charsToTrim = { '*', ' ', '\'' };
-                Name = Name.Trim(charsToTrim);
-                // Get data from the database from id,
-                // The name comes from a field imageURL, no from a paramenter of the function.
-                using System.Drawing.Image image = System.Drawing.Image.FromFile("C:\\Papi\\AngularNET\\JairoEComerce\\jairoEcomerce\\Resources\\Images\\"+Name+".JPG");
-                using MemoryStream memoryStream = new MemoryStream();
-                image.Save(memoryStream, image.RawFormat);
-                byte[] imageBytes = memoryStream.ToArray();
-                // Turn that image into a strding.
-                string base64String = Convert.ToBase64String(imageBytes);
-                myProduct.ImageUrl = base64String;
-                // save the string into the appropriate object variable
-                //return await Task.Run(() => File(image, "image/jpeg"));
-                return Ok(myProduct);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
 
 
         //public IActionResult Post([FromBody] Product model)

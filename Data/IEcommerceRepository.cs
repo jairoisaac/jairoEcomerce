@@ -1,12 +1,13 @@
 ﻿using jairoEcomerce.Data.Entities;
 using jairoEcomerce.ViewModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace jairoEcomerce.Data
 {
     public interface IEcommerceRepository
     {
-        IEnumerable<Product> GetProducts();
+        Task<IEnumerable<Product>> GetProductsAsync();
         IEnumerable<Product> GetProductsByCategory(string category);
         Product GetProduct(int id);
         IEnumerable<Order> GetOrders();
