@@ -1,7 +1,7 @@
 import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
-import { IProduct } from '../product/product';
+import { IProduct } from '../shared/product';
 import { DataService } from '../shared/data.service';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Observable, of, throwError } from 'rxjs';
-import { IProduct } from '../product/product';
+import { IProduct } from '../shared/product';
 import { catchError, tap } from 'rxjs/operators';
 import { Order, OrderItem } from "./order";
 import { map } from 'lodash';
@@ -15,7 +15,7 @@ export class DataService {
   public order: Order = new Order();
   
 
-  private productUrl = 'https://localhost:44367/api/Product';
+  private productUrl = 'https://localhost:44367/api/Products';
 
   getProduct(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl).pipe(
@@ -64,7 +64,7 @@ export class DataService {
   // Initial version of the observable
   postProductsForm(product: IProduct): Observable<any> {
     //Saving the product to the datavbase.
-    return this.http.post("/api/Product", product, {});
+    return this.http.post("/api/Products", product, {});
   }
 
 

@@ -48,7 +48,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\product\product.ts" />
     <None Remove="ClientApp\src\app\shared\order.ts" />
   </ItemGroup>
 
@@ -63,11 +62,6 @@
     <None Include="wwwroot\img\image22.jpg" />
     <None Include="wwwroot\img\image44.jpg" />
     <None Include="wwwroot\img\image55.jpg" />
-    <None Include="wwwroot\img\IMG_3306.JPG" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\product\product.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

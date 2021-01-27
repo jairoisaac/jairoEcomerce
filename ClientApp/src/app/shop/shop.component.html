@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-8">
-    <app-product></app-product>
-  </div>
   <div class="col-md-4" *ngIf="data.order.items.length > 0">
     <app-cart></app-cart>
+  </div>
+  <div class="col-md-8">
+    <app-shopProduct></app-shopProduct>
   </div>
 </div>
 

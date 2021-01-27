@@ -9,7 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { ProductComponent } from './product/product.component';
+import { shopProductComponent } from './shopProduct/shopProduct.component';
 import { CartComponent } from './cart/cart.component';
 import { ShopComponent } from './shop/shop.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -22,7 +22,7 @@ import { ProductsComponent } from './products/products.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ProductComponent,
+    shopProductComponent,
     CartComponent,
     ShopComponent,
     CheckoutComponent,
