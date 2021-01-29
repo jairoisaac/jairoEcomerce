@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { IProduct } from '../shared/product';
 import { DataService } from '../shared/data.service';
+//import { error } from 'console';
 
 @Component({
   selector: 'app-products',
@@ -59,5 +60,13 @@ export class ProductsComponent implements OnInit {
  }
   onBlur(field: NgModel) {
     console.log('in onBlur', field.valid)
+  }
+  //getAProduct(id)
+  getAProduct(id)
+  {
+    this.data.getProduct(id).subscribe({
+      next: product => this.product = product,
+      error: err => this.errorMessage = err
+    });
   }
 }

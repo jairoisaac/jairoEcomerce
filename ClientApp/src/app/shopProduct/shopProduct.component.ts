@@ -10,11 +10,11 @@ import { DataService } from '../shared/data.service';
 export class shopProductComponent implements OnInit {
   constructor(private data: DataService) { }
   errorMessage: string;
-  Product: IProduct[] = [];
+  product: IProduct[] = [];
  
   ngOnInit(): void {
-    this.data.getProduct().subscribe({
-      next: product => this.Product = product,
+    this.data.getProducts().subscribe({
+      next: product => this.product = product,
       error: err => this.errorMessage = err
     });
   }

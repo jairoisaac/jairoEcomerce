@@ -94,9 +94,18 @@ namespace jairoEcomerce.Data
             //throw new NotImplementedException();
         }
 
-        public Product GetProduct(int id)
+        public async Task<Product> GetProductAsync(int id)
         {
-            return ctx.Products.Where(p => p.Id == id).FirstOrDefault();
+            try
+            {
+                var result = ctx.Products.Where(p => p.Id == id).FirstOrDefault();
+                return await Task.FromResult(result); 
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"Failed to get all products: {ex}");
+                return null;
+            }
         }
     }
 }

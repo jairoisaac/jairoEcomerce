@@ -40,7 +40,20 @@ namespace jairoEcomerce.Controllers
                 return BadRequest("Failed to get products");
             }
         }
-        
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> Get(int id)
+        {
+            try
+            {
+                return Ok(await repository.GetProductAsync(id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"Failed to get produc: {ex}");
+                return BadRequest("Failed to get produc");
+            }
+        }
 
 
         //public IActionResult Post([FromBody] Product model)

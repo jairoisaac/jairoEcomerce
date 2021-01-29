@@ -17,12 +17,21 @@ export class DataService {
 
   private productUrl = 'https://localhost:44367/api/Products';
 
-  getProduct(): Observable<IProduct[]> {
+  getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
+  getProduct(id): Observable<IProduct> {
+    this.productUrl = 'https://localhost:44367/api/Products';
+    this.productUrl = this.productUrl + "/"+id;
+    return this.http.get<IProduct>(this.productUrl).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   public AddToOrder(product: IProduct) {
 
     let item: OrderItem = this.order.items.find(i => i.productId == product.id);
@@ -53,6 +62,7 @@ export class DataService {
   }
 
   public checkout(): Observable<Order> {
+    // Create the product to the order.
     return this.http.post<Order>("/api/orders", this.order, {}).pipe(
       tap(data => console.log('ALL: ' + JSON.stringify(data))),
       catchError(this.handleError)

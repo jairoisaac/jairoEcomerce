@@ -9,7 +9,7 @@ namespace jairoEcomerce.Data
     {
         Task<IEnumerable<Product>> GetProductsAsync();
         IEnumerable<Product> GetProductsByCategory(string category);
-        Product GetProduct(int id);
+        Task<Product> GetProductAsync(int id);
         IEnumerable<Order> GetOrders();
         Order GetOrderById(int id);
         public bool SaveAll();

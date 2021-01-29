@@ -6,14 +6,14 @@
         <div class="form-group">
           <div *ngIf="noPicture" class="alert alert-warning">{{ errorMessage }}</div>
           <label for="categories">Categories</label>
-          <select class="form-control" aria-label="Default select example" id="categories" [(ngModel)]="product.category" name="categories">
+          <select class="form-control" aria-label="Default select example" id="categories" [(ngModel)]="product.category"
+                  name="categories">
             <option>Pitos</option>
-            <option>Mildred</option>
-            <option>Serah</option>
+            <option>Mildreds</option>
+            <option>Serahs</option>
             <option>RoseMaries</option>
             <option>Caballos</option>
           </select>
-
         </div>
         <div class="form-group">
           <label for="name">Name</label>
@@ -33,12 +33,14 @@
           {{product.imageUrl}}
           <!--<input id="imageUrl" name="imageUrl" class="form-control" type="text" [(ngModel)]="product.imageUrl" />-->
         </div>
-        <button class="btn btn-primary">Send</button>
+        <button class="btn btn-primary">Submit</button>
       </form>
+      <button class="btn-primary" (click)="getAProduct(id.value)">GetAProduct</button>
     </div>
   </div>
   <div class="col-md-6">
     <div class="container">
+      <input type="number" #id class="form-control" />
       <!--<img [src]="createImgPath()" alt="profile picture" style="width:60px; height:60px;">-->
       <img [src]="createImgPath()" alt="profile picture" class="img-fluid">
       <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
