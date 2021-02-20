@@ -35,17 +35,16 @@
         </div>
         <button class="btn btn-primary">Submit</button>
       </form>
-      <button class="btn-primary" (click)="getAProduct(id.value)">GetAProduct</button>
+      <!--<button class="btn-primary" (click)="getAProduct(id.value)">GetAProduct</button>-->
     </div>
   </div>
   <div class="col-md-6">
     <div class="container">
-      <input type="number" #id class="form-control" />
-      <!--<img [src]="createImgPath()" alt="profile picture" style="width:60px; height:60px;">-->
-      <img [src]="createImgPath()" alt="profile picture" class="img-fluid">
+      <img src="/img/{{ product.imageUrl }}" alt="profile picture" class="img-fluid">
       <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
     </div>
   </div>
+  <p>{{data.productId}}</p>
 </div>
 
 

@@ -10,6 +10,7 @@ using jairoEcomerce.Data.Entities;
 using jairoEcomerce.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace jairoEcomerce.Controllers
 {
@@ -40,7 +41,6 @@ namespace jairoEcomerce.Controllers
                 return BadRequest("Failed to get products");
             }
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> Get(int id)
         {
@@ -67,8 +67,8 @@ namespace jairoEcomerce.Controllers
                     var newProduct = mapper.Map<ProductViewModel, Product>(model);
                     repository.AddProduct(newProduct);
 
-                    if (repository.SaveAll())
-                    {
+                    if (repository.SaveAll()) { 
+                    
                         return Created($"/api/product/{model.Name}", model);
                     }
                 }
@@ -83,5 +83,44 @@ namespace jairoEcomerce.Controllers
             }
             return BadRequest("Failed to save new order");
         }
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ProductViewModel>> Put(int id, [FromBody]ProductViewModel model)
+        {
+            try
+            {
+                var oldProduct = await repository.GetProductAsync(id);
+                if (oldProduct == null) return NotFound($"Cold not find product for that {id}");
+                mapper.Map(model, oldProduct);
+                if (await repository.SaveAllAsync())
+                {
+                    return mapper.Map<ProductViewModel>(oldProduct);
+                }
+
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+            return BadRequest();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var oldProduct = await repository.GetProductAsync(id);
+                if (oldProduct == null) return NotFound($"Cold not find product for that {id}");
+                repository.Delete(oldProduct);
+                if (await repository.SaveAllAsync())
+		            return Ok();
+            }
+            catch (Exception ex)
+            {
+               
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+            return BadRequest();
+        }
+
     }
 }

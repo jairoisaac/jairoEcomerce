@@ -55,6 +55,12 @@ namespace jairoEcomerce.Data
             }).ToList();
         }
 
+        public async Task<bool> SaveAllAsync()
+        {
+            //TO DO:Turn this into an async operation
+            return (await ctx.SaveChangesAsync()) > 0;
+        }
+
         public bool SaveAll()
         {
             return ctx.SaveChanges() > 0;
@@ -107,5 +113,12 @@ namespace jairoEcomerce.Data
                 return null;
             }
         }
+
+        public void Delete(Product model)
+        {
+            logger.LogInformation($"Removing Product");
+            ctx.Remove(model);
+        }
+
     }
 }

@@ -1,15 +1,21 @@
-    <div class="row">
-        <div class="product-info col-md-4" *ngFor='let prod of product'>
-          <div class="card card-body bg-light p-1 m-1">
-            <img src="/img/{{ prod.imageUrl }}" alt="Product image" class="img-fluid" />
-            <!--<img src="/img/{{ prod.imageUrl }}.jpg" alt="Product image" class="img-fluid" />-->
-            <!--<img [src]='prod.imageUrl' alt="Product image" class="img-fluid" />-->
-            <h3>{{prod.category}}</h3>
-            <ul class="product-props list-unstyled">
-              <li><strong>Price</strong>: {{ prod.price | currency:"USD":true }}</li>
-              <li><strong>Name</strong>: {{ prod.name }}</li>
-            </ul>
-            <button id="buyButton" class="btn btn-success" (click)="AddToProduct(prod)">Buy</button>
-          </div>
-        </div>
+<div class="row">
+  <button id="addButton" class="btn btn-success" (click)="addProduct()" *ngIf="!data.shop"><b>+</b></button>
+</div>
+<div class="row">
+  <!--<div class="product-info col-md-4" *ngFor='let prod of product,let i = index'>-->
+    <div class="product-info col-md-4" *ngFor='let prod of product'>
+      <div class="card card-body bg-light p-1 m-1">
+        <img src="/img/{{ prod.imageUrl }}" alt="Product image" class="img-fluid" />
+        <!--<img src="/img/{{ prod.imageUrl }}.jpg" alt="Product image" class="img-fluid" />-->
+        <!--<img [src]='prod.imageUrl' alt="Product image" class="img-fluid" />-->
+        <h3>{{prod.category}}</h3>
+        <ul class="product-props list-unstyled">
+          <li><strong>Price</strong>: {{ prod.price | currency:"USD":true }}</li>
+          <li><strong>Name</strong>: {{ prod.name }}</li>
+        </ul>
+        <button id="buyButton" class="btn btn-success" (click)="AddToOrder(prod)" *ngIf="data.shop">Buy</button>
+        <button id="editButton" class="btn btn-primary" (click)="EditProduct(prod.id)" *ngIf="!data.shop">Edit{{prod.id}}</button>
+        <button id="editButton" class="btn bg-light" (click)="deleteProduct(prod.id)" *ngIf="!data.shop">Delete</button>
+      </div>
     </div>
+  </div>

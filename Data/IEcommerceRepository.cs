@@ -12,8 +12,11 @@ namespace jairoEcomerce.Data
         Task<Product> GetProductAsync(int id);
         IEnumerable<Order> GetOrders();
         Order GetOrderById(int id);
+        public Task<bool> SaveAllAsync();
         public bool SaveAll();
         void AddOrder(Order model);
         void AddProduct(Product model);
+        void Delete(Product model);
+
     }
 }

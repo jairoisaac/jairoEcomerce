@@ -11,26 +11,25 @@ import { map } from 'lodash';
 })
 export class DataService {
 
+  // To edit a product
+  public productId = 0;
+  public product: IProduct;
+  public shop: boolean = false; // decide if shoping or changing product data.
   constructor(private http: HttpClient) { }
+
   public order: Order = new Order();
   
 
-  private productUrl = 'https://localhost:44367/api/Products';
+  private productUrl = '';
+
 
   getProducts(): Observable<IProduct[]> {
+    this.productUrl = '/api/Products';
     return this.http.get<IProduct[]>(this.productUrl).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+      catchError(this.handleError));
   }
-  getProduct(id): Observable<IProduct> {
-    this.productUrl = 'https://localhost:44367/api/Products';
-    this.productUrl = this.productUrl + "/"+id;
-    return this.http.get<IProduct>(this.productUrl).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
-      catchError(this.handleError)
-    );
-  }
+
 
   public AddToOrder(product: IProduct) {
 
@@ -77,5 +76,27 @@ export class DataService {
     return this.http.post("/api/Products", product, {});
   }
 
+
+  getProduct(id): Observable<IProduct> {
+    this.productUrl = '/api/Products';
+    this.productUrl = this.productUrl + "/" + id;
+    return this.http.get<IProduct>(this.productUrl).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+
+
+
+  putProduct(product: IProduct): Observable<IProduct> {
+    //Saving the product to the datavbase.
+    return this.http.put<IProduct>("/api/Products/" + product.id, product);
+  }
+
+  deleteProduct(id): Observable<any> {
+    //Saving the product to the datavbase.
+    return this.http.delete<any>("/api/Products/" + id);
+  }
 
 }
