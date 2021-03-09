@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jairoEcomerce", "jairoEcomerce.csproj", "{9F114443-F032-4B46-B8FD-58DBE2F1B750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jairoEcomerce", "jairoEcomerce.csproj", "{9F114443-F032-4B46-B8FD-58DBE2F1B750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jairoEcomerceTest", "..\jairoEcomerceTest\jairoEcomerceTest.csproj", "{CA0DCE9D-BCA5-42E4-9304-F94E32D27C76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9F114443-F032-4B46-B8FD-58DBE2F1B750}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F114443-F032-4B46-B8FD-58DBE2F1B750}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F114443-F032-4B46-B8FD-58DBE2F1B750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0DCE9D-BCA5-42E4-9304-F94E32D27C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0DCE9D-BCA5-42E4-9304-F94E32D27C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0DCE9D-BCA5-42E4-9304-F94E32D27C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0DCE9D-BCA5-42E4-9304-F94E32D27C76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

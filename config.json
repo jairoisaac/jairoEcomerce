@@ -1,7 +1,7 @@
 {
   "ConnectionStrings": {
     //"MyConnectionEcommerce": "server=(localdb)\\ProjectsV13;Database=JairoEcommerceDB;Integrated Security=true;MultipleActiveResultSets=true;",
-    //"MyConnectionEcommerce": "server=(localdb)\\MSSQLLocalDB;Database=JairoEcommerceDB;Integrated Security=true;MultipleActiveResultSets=true;",
-    "MyConnectionEcommerce": "server=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\Papi\\AngularNET\\JairoEComerce\\jairoEcomerce\\App_Data\\JairoEcommerceDB.mdf;Integrated Security=true;MultipleActiveResultSets=true;"
+    "MyConnectionEcommerce": "server=(localdb)\\MSSQLLocalDB;Database=JairoEcommerceDB;Integrated Security=true;MultipleActiveResultSets=true;",
+    //"MyConnectionEcommerce": "server=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\Papi\\AngularNET\\JairoEComerce\\jairoEcomerce\\App_Data\\JairoEcommerceDB.mdf;Integrated Security=true;MultipleActiveResultSets=true;"
   }
 }

@@ -18,10 +18,10 @@ namespace jairoEcomerce.Controllers
     public class ProductsController : Controller
     {
         private readonly IEcommerceRepository repository;
-        private readonly ILogger<OrdersController> logger;
+        private readonly ILogger<ProductsController> logger;
         private readonly IMapper mapper;
 
-        public ProductsController(IEcommerceRepository repository, ILogger<OrdersController> logger,
+        public ProductsController(IEcommerceRepository repository, ILogger<ProductsController> logger,
             IMapper mapper)
         {
             this.repository = repository;

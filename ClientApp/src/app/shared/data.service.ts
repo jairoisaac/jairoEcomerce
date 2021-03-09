@@ -14,7 +14,7 @@ export class DataService {
   // To edit a product
   public productId = 0;
   public product: IProduct;
-  public shop: boolean = false; // decide if shoping or changing product data.
+  public shop: boolean = false // decide if shoping or changing product data.
   constructor(private http: HttpClient) { }
 
   public order: Order = new Order();

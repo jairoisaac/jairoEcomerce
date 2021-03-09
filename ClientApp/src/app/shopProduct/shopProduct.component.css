@@ -12,3 +12,7 @@
 .product-props {
   font-size: x-small;
 }
+.center {
+  display: flex;
+  justify-content: center;
+}

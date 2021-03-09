@@ -43,11 +43,7 @@ export class shopProductComponent implements OnInit {
   }
 
 
-  //ngAfterContentChecked(): void {
-  //  if (this.data.productId == this.data.product.id)
-  //    var prodIndx = this.product.findIndex(p => p.id == this.data.product.id)
-  //  this.product[prodIndx] = this.data.product;
-  //}
+
 
   AddToOrder(product: IProduct) {
     this.data.AddToOrder(product);
